@@ -2,12 +2,27 @@ import React from 'react';
 import uuid from 'uuid';
 import style from './App.css';
 import Title from '../components/Title';
+import ToDoList from '../components/ToDoList';
 
 class App extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			data: []
+			data: [
+				{
+					id: 1,
+					text: 'clean room'
+				}, {
+					id: 2,
+					text: 'wash the dishes'
+				}, {
+					id: 3,
+					text: 'feed my cat'
+				}, {
+					id: 4,
+					text: 'make dinner'
+				}
+			]
 		};
 	}
 	addTodo(val) {
@@ -22,10 +37,16 @@ class App extends React.Component {
 		const remainder = this.state.data.filter(todo => todo.id !== id);
 		this.setState({data: remainder});
 	}
+	getElements() {
+		return this.state.data.map( (el, id) => <li key={el.id}>{el.text}</li>);
+	}
 	render() {
 		return (
 			<div className={style.TodoApp}>
-				<Title headline="What are you going ToDo?" howMany={this.state.data.length} />
+				<div className={style.TodoApp__container}>
+					<Title headline="What are you going ToDo?" howMany={this.state.data.length} />
+					<ToDoList getList={this.getElements()} />
+				</div>
 			</div>
 		);
 	}
