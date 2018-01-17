@@ -2,6 +2,7 @@ import React from 'react';
 import uuid from 'uuid';
 import style from './App.css';
 import Title from '../components/Title';
+import TodoForm from '../components/TodoForm';
 import ToDoList from '../components/ToDoList';
 
 class App extends React.Component {
@@ -17,7 +18,7 @@ class App extends React.Component {
 					text: 'wash the dishes'
 				}, {
 					id: 3,
-					text: 'feed my cat'
+					text: 'feed my dog'
 				}, {
 					id: 4,
 					text: 'make dinner'
@@ -46,6 +47,7 @@ class App extends React.Component {
 				<div className={style.TodoApp__container}>
 					<Title headline="What are you going ToDo?" howMany={this.state.data.length} />
 					<ToDoList getList={this.getElements()} />
+					<TodoForm addNew={this.addTodo} />
 				</div>
 			</div>
 		);
