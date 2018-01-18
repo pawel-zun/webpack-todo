@@ -1,4 +1,5 @@
 import React from 'react';
+import style from './TodoForm.css';
 
 class TodoForm extends React.Component {
 	constructor(props) {
@@ -14,14 +15,17 @@ class TodoForm extends React.Component {
 		this.setState({desc: event.target.value});
 	}
 	handleSubmit(event) {
-    this.props.addNew(this.state.desc);
     event.preventDefault();
+		if (this.state.desc) {
+			this.props.addNew(this.state.desc);
+			this.setState({desc: ''});
+		}
   }
 	render() {
 		return (
-			<form onSubmit={this.handleSubmit}>
+			<form onSubmit={this.handleSubmit} className={style.TodoForm}>
 				<input type="text" placeholder="Add a thing ToDo" value={this.state.desc} onChange={this.handleChange} />
-				<input type="submit" value="Submit" onClick={this.handleSubmit} />
+				<input type="submit" value="Submit" />
 			</form>
 		);
 	}

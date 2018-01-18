@@ -38,16 +38,13 @@ class App extends React.Component {
 		const remainder = this.state.data.filter(todo => todo.id !== id);
 		this.setState({data: remainder});
 	}
-	getElements() {
-		return this.state.data.map( (el, id) => <li key={el.id}>{el.text}</li>);
-	}
 	render() {
 		return (
 			<div className={style.TodoApp}>
 				<div className={style.TodoApp__container}>
 					<Title headline="What are you going ToDo?" howMany={this.state.data.length} />
-					<ToDoList getList={this.getElements()} />
-					<TodoForm addNew={this.addTodo} />
+					<ToDoList data={this.state.data} removeItem={this.removeTodo.bind(this)} />
+					<TodoForm addNew={this.addTodo.bind(this)} />
 				</div>
 			</div>
 		);
