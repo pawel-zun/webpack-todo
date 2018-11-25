@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render a title 1`] = `
+<div
+  className="Title"
+>
+  <h1
+    className="Title__headline"
+  >
+    What are you going ToDo?
+  </h1>
+  <p
+    className="Title__tasks"
+  >
+    There are: 
+    <span
+      className="Title__tasks_number"
+    >
+      4
+    </span>
+     tasks to complete.
+  </p>
+</div>
+`;
