@@ -21,7 +21,6 @@
       "^.+\\.(css|scss)$": "identity-obj-proxy"
     },
     "collectCoverage": true,
-    "coverageDirectory": "./test",
     "collectCoverageFrom": [
       "src/**/*.js"
     ]
